@@ -89,7 +89,8 @@ sub to_csv {
 
 sub to_tex {
     my $self = shift;
-    $self->show(sep => '+', mul => '', before => '$', after => '$');
+    $self->show(sep => '+', noblank => 1, mul => '',
+        before => '$', after => '$');
 }
 
 
