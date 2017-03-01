@@ -89,7 +89,7 @@ sub to_csv {
 
 sub to_tex {
     my $self = shift;
-    $self->show(sep => '+', around => '$');
+    $self->show(sep => '+', mul => '', before => '$', after => '$');
 }
 
 
@@ -171,8 +171,6 @@ sub polarize {
     $tmp->d($d);
     return  $tmp;
 }
-
-
 
 sub _build_polynomial {
     my $self = shift;
