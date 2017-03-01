@@ -4,32 +4,6 @@ use strict;
 use warnings;
 use feature "say";
 use Polynomial;
-# use Data::Printer;
-use Math::Prime::Util qw(binomial znprimroot is_primitive_root);
-use Getopt::Long;
-
-my $k = 5;
-my $c;
-my $e;
-my $d = 0;
-my $str;
-
-# Pasring command line arguments
-Getopt::Long::Configure ("bundling");
-GetOptions (
-    'k=i'   => \$k,   # value of the logic
-    'c=i'   => \$c,   # some constant
-    'e=i'   => \$e,   # some constant
-    'd=i'   => \$d,   # polarization
-    'str=s' => \$str, # string, representing polynomial
-);
-
-my $k_1 = $k-1;
-
-$c //= znprimroot($k);
-$e //= -znprimroot($k) % $k;
-$str //= "-t*x^$k_1";
-
 
 say 'Symbolic polynomials in 3-valued logic:';
 my $p1 = Polynomial->new(k => 3, str => "h*x^2 + 2t*x + t");
