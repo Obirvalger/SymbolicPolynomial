@@ -238,7 +238,7 @@ sub show {
     if ($args{tex}) {
         $args{mul} //= '';
     } else {
-        $args{mul} = '*';
+        $args{mul} //= '*';
     }
 
     $args{sep} = '' if $args{only_functions};

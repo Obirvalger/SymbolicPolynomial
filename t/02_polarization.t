@@ -24,9 +24,9 @@ Symbolic: do {
     my $c = znprimroot($k);
     #my  @funcs = generate_all("1.g;1.h","1.h;2.g", $k);
     #my $f1 = generate(gen => "1*h;2*g", k => $k, type => 2);
-    my $h = Polynomial->new(k => $k, 
+    my $h = Polynomial->new(k => $k,
         str => 'h*x^4 + t*x^3 + t*x^2 + t*x + t');
-    my $t = Polynomial->new(k => $k, 
+    my $t = Polynomial->new(k => $k,
         str => 't*x^4 + 2*h*x^3 + 2*h*x^2 + 2*h*x + 2*h');
 
     is($h->polarize(1),
@@ -43,9 +43,9 @@ Symbolic: do {
 
     is($f0->polarize(1),
         'g*(x+1)^4 + (g + h)*(x+1)^3 + (2*g + 2*h)*(x+1)^2 + (4*g + 4*h)*(x+1) + (3*g + 3*h)',
-        "k=$k f=2 p=2",
+        "k=$k f=2 p=1",
     );
-        
+
     is($f1->polarize(2),
         'h*(x+2)^4 + (2*g + 2*h)*(x+2)^3 + 3*g*(x+2)^2 + (g + 4*h)*(x+2) + h',
         "k=$k f=2 p=2",
@@ -53,6 +53,6 @@ Symbolic: do {
 
     is($f4->polarize(3),
         '(g + 3*h)*(x+3)^4 + 4*g*(x+3)^3 + (g + h)*(x+3)^2 + (4*g + h)*(x+3) + (g + 3*h)',
-        "k=$k f=2 p=2",
+        "k=$k f=2 p=3",
     );
 };
