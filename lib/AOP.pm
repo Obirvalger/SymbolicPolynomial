@@ -96,7 +96,7 @@ sub show {
         chomp($s);
         $s .= "\n" if $s;
     }
-    
+
     my $a;
     if ($args{only_functions}) {
         $a = $self->_show_types($args{only_functions});
@@ -138,7 +138,7 @@ sub to_csv {
 #        $res .= join("\n", map {$_->to_csv} @{$self->polynomials->[$d]}) .
 #            "\n\n";
 #    }
-    
+
     $self->show(dsep => "\n\n", psep => "\n", poly_show => {sep => ';', @_});
 
 #    return $res;
@@ -153,7 +153,7 @@ sub to_tex_table {
     $res .= $self->show(
         before => _begin_tex() . "\\begin{table}\n\\centering",
         after => '\end{table}' . _end_tex(),
-        sep => "\\\\ \\hline  \n", 
+        sep => "\\\\ \\hline  \n",
         around => ['\begin{tabular}{|l' .'|l' x $k . '|} \hline',
                    '\end{tabular}'],
         poly_show => {mul => '', tex => 1, sep => ' & ', around => '$', @_}
@@ -170,7 +170,7 @@ sub to_tex_array {
     my $res = '';
     $res .= "\\documentclass[a4paper, 12pt]{extarticle}\n\\begin{document}\n";
     $res .= $self->show(
-        sep => "\\\\  \n", 
+        sep => "\\\\  \n",
         around => ['$$\begin{array}{l}','\end{array}$$'],
         poly_show => {mul => '', tex => 1, @_}
     );
@@ -221,7 +221,7 @@ sub is_all_complex {
         while (my ($i, $p) = each @{$self->polynomials->[$d]}) {
             my $l = $p->len;
             unless ($l == $k) {
-                warn "Not complex d $d i $i\n" if $_[0];;
+                warn "Not complex d $d i $i\n" if $_[0];
                 $res = 0;
             }
         }
@@ -250,7 +250,7 @@ sub _build_polynomials {
     my $k = $self->k;
     my $g = Polynomial->new(k => $k, str => $self->gens->[0]);
     my $h = Polynomial->new(k => $k, str => $self->gens->[1]);
-    
+
     my @polys = linear_combs($g, $h);
     my @res;
 
