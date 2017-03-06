@@ -172,7 +172,7 @@ sub to_tex_array {
     $res .= $self->show(
         sep => "\\\\  \n",
         around => ['$$\begin{array}{l}','\end{array}$$'],
-        poly_show => {mul => '', tex => 1, @_}
+        poly_show => {mul => '', tex => 1, noblank => 1, @_}
     );
     $res .= '\end{document}';
 
