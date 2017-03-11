@@ -22,8 +22,8 @@ GetOptions (
     'c=i' => \$c,
     'e=i' => \$e,
     'csv' => \$csv,
-    'v=s'   => \$v,
-    's=s'   => \$s,
+    'v=s' => \$v,
+    's=s' => \$s,
 #    't'   => \$t,
 );
 
@@ -52,7 +52,7 @@ my $as = AOP->new(k => $k, gens => [$hs, $ts]);
 
 if ($s) {
     open(my $fh, '>', $s);
-    say $fh $as->to_tex_array;
+    say $fh $as->to_tex_arr;
 }
 
 if ($v) {
