@@ -254,7 +254,7 @@ sub _build_polynomials {
     my @polys = linear_combs($g, $h);
     my @res;
 
-    for my $d (0..$k) {
+    for my $d (0..$k-1) {
         push @res, [map {$_->polarize($d)} @polys];
     }
 
