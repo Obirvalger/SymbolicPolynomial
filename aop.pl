@@ -52,13 +52,17 @@ my $as = AOP->new(k => $k, gens => [$hs, $ts]);
 
 if ($s) {
     open(my $fh, '>', $s);
-    say $fh $as->to_tex_arr;
+    say $fh $as->to_tex_array;
 }
 
 if ($v) {
     open(my $fh, '>', $v);
     say $fh $av->to_tex_array;
 }
+
+say $as->to_tex_array(one_function => 'f');
+# say $as->show();
+
 
 # say $av->to_csv;
 #say $as->to_tex_table(only_functions => 'f');

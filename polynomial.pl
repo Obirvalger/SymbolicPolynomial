@@ -37,11 +37,11 @@ my $h = Polynomial->new(k => $k,
 my $t = Polynomial->new(k => $k,
    str => "t*x^$k_1 + -$c*h*x^$k_1 + $c*h*(x+$k_1)^$k_1");
 
+say $h->show(one_function => 'f');
+
 # Creating "simple" polynomials
 my $f = Polynomial->new(k => $k, str => "$e*x^$k_1 + (x+1)^$k_1");
 my $g = Polynomial->new(k => $k, str => "x^$k_1 + $e*(x+1)^$k_1");
-
-
 
 for my $d (0..$k-1) {
     say $f->polarize($d)->to_csv;
